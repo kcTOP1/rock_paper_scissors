@@ -1,23 +1,4 @@
-let playerSel = '';
-
-const container = document.querySelector('#container');
-//This is the general container/parent of all the text on the page
-//similar to how in flexBox you have to have a maic container to format everything
-
-const buttons = document.querySelectorAll('button');
-// buttons is a node list. It looks and acts much like an array.
-
-//Use the .forEach method to iterate thorugh each button 
-buttons.forEach((button) => {
-
-    // and for each one we add a 'click' listener
-    button.addEventListener('click', () => {
-        playerSel = button.id;
-        console.log(playerSel);
-        
-    });
-});
-
+let winCount = 0;
 
 
 function getComputerChoice() {
@@ -39,7 +20,7 @@ function getComputerChoice() {
 
 
 function roundPlay(player, computer) {
-    let winCount = 0;
+    
     if (player == computer) {
         console.log("the same");
     }
@@ -65,4 +46,27 @@ function roundPlay(player, computer) {
 
     
 }
+
+
+
+let playerSel = '';
+
+const container = document.querySelector('#container');
+//This is the general container/parent of all the text on the page
+//similar to how in flexBox you have to have a maic container to format everything
+
+const buttons = document.querySelectorAll('button');
+// buttons is a node list. It looks and acts much like an array.
+
+//Use the .forEach method to iterate thorugh each button 
+buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        playerSel = button.id;
+        console.log(playerSel);
+        roundPlay(playerSel, getComputerChoice())
+        
+    });
+});
 
