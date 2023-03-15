@@ -20,7 +20,7 @@ function getComputerChoice() {
 
 
 function roundPlay(player, computer) {
-    
+   
     if (player == computer) {
         console.log("the same");
     }
@@ -43,30 +43,46 @@ function roundPlay(player, computer) {
         winCount++;
     }
     console.log("Player win count: " + winCount);
+    
 
     
 }
 
 
 
-let playerSel = '';
+    let playerSel = '';
+    
+    const container = document.querySelector('#container');
+    //This is the general container/parent of all the text on the page
+    //similar to how in flexBox you have to have a maic container to format everything
 
-const container = document.querySelector('#container');
-//This is the general container/parent of all the text on the page
-//similar to how in flexBox you have to have a maic container to format everything
+    const buttons = document.querySelectorAll('button');
+    // buttons is a node list. It looks and acts much like an array.
 
-const buttons = document.querySelectorAll('button');
-// buttons is a node list. It looks and acts much like an array.
+    //Use the .forEach method to iterate thorugh each button 
+    buttons.forEach((button) => {
 
-//Use the .forEach method to iterate thorugh each button 
-buttons.forEach((button) => {
+        // and for each one we add a 'click' listener
+        button.addEventListener('click', () => {
+            playerSel = button.id;
+            console.log(playerSel);
+            roundPlay(playerSel, getComputerChoice())
+            results.textContent = ""; 
+            results.textContent = "Player win count: " + winCount;
+            choicePlayer.textContent = "";
+            choicePlayer.textContent = "Player choice: " + playerSel;
 
-    // and for each one we add a 'click' listener
-    button.addEventListener('click', () => {
-        playerSel = button.id;
-        console.log(playerSel);
-        roundPlay(playerSel, getComputerChoice())
         
+        });
     });
-});
+
+    const results = document.createElement('p');
+    results.classList.add('results');
+    container.appendChild(results);
+
+    const choicePlayer = document.createElement('p');
+    choicePlayer.classList.add("choicePlayer");
+    container.appendChild(choicePlayer);
+
+
 
