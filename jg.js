@@ -18,6 +18,7 @@ function getComputerChoice() {
 
 
 function roundPlay(player, computer) {
+    let winCount = 0;
     if (player == computer) {
         console.log("the same");
     }
@@ -25,9 +26,11 @@ function roundPlay(player, computer) {
         console.log("Player loses. Paper Wins");
     } else if (player == "rock" && computer == "scissors") {
         console.log("Player wins, rock beats scissors")
+        winCount++;
     }
     if (player == "paper" && computer == "rock") {
         console.log("Player wins with paper");
+        winCount++;
     } else if (player == "paper" && computer == "scissors") {
         console.log("Player loses, scissors beat paper");
     }
@@ -35,13 +38,13 @@ function roundPlay(player, computer) {
         console.log("player loses, rock beats scissors");
     } else if (player == "scissors" && computer == "paper") {
         console.log("Player wins, scissors beat paper");
+        winCount++;
     }
+    console.log("Player win count: " + winCount);
 
     
 }
 
-const playerSel = prompt("Enter rock, paper, or scissor: ");
-const computerSel = getComputerChoice();
-roundPlay(playerSel, computerSel);
-console.log("This is the player selection: " + playerSel);
-console.log("This is the computer selection: " + computerSel);
+
+
+
