@@ -1,9 +1,9 @@
 let winCount = 0;
 
-
+let compSel = "";
 function getComputerChoice() {
     let compChoice = Math.floor(Math.random() *3);
-    let compSel = "";
+    
     if (compChoice == 0) {
         
         compSel = "rock";
@@ -71,6 +71,12 @@ function roundPlay(player, computer) {
             results.textContent = "Player win count: " + winCount;
             choicePlayer.textContent = "";
             choicePlayer.textContent = "Player choice: " + playerSel;
+            choiceComp.textContent = "";
+            choiceComp.textContent = "Computer Choice: " + compSel;
+            if (winCount % 5 == 0 && winCount != 0) {
+                alert("Player has won 5 games");
+                winCount = 0;
+            }
 
         
         });
@@ -83,6 +89,10 @@ function roundPlay(player, computer) {
     const choicePlayer = document.createElement('p');
     choicePlayer.classList.add("choicePlayer");
     container.appendChild(choicePlayer);
+
+    const choiceComp = document.createElement('p');
+    choiceComp.classList.add("choiceComp");
+    container.appendChild(choiceComp);
 
 
 
