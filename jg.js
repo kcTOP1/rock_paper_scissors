@@ -22,24 +22,24 @@ function getComputerChoice() {
 function roundPlay(player, computer) {
    
     if (player == computer) {
-        console.log("the same");
+        
     }
     if (player == "rock" && computer == "paper") {
-        console.log("Player loses. Paper Wins");
+        
     } else if (player == "rock" && computer == "scissors") {
-        console.log("Player wins, rock beats scissors")
+        
         winCount++;
     }
     if (player == "paper" && computer == "rock") {
-        console.log("Player wins with paper");
+        
         winCount++;
     } else if (player == "paper" && computer == "scissors") {
-        console.log("Player loses, scissors beat paper");
+        
     }
     if (player == "scissors" && computer == "rock") {
-        console.log("player loses, rock beats scissors");
+        
     } else if (player == "scissors" && computer == "paper") {
-        console.log("Player wins, scissors beat paper");
+        
         winCount++;
     }
     console.log("Player win count: " + winCount);
@@ -65,7 +65,6 @@ function roundPlay(player, computer) {
         // and for each one we add a 'click' listener
         button.addEventListener('click', () => {
             playerSel = button.id;
-            console.log(playerSel);
             roundPlay(playerSel, getComputerChoice())
             results.textContent = ""; 
             results.textContent = "Player win count: " + winCount;
@@ -77,8 +76,6 @@ function roundPlay(player, computer) {
                 alert("Player has won 5 games");
                 winCount = 0;
             }
-
-        
         });
     });
 
